@@ -105,6 +105,74 @@ function solveMine(map,n){
             return validCells;
         };
 
-        this.isValidCell = function
+        this.isValidCell = function(x,y){
+            var h = this.board.length, w= this.board[0].length;
+            return (x >= 0 && x < w) && (y >= 0 && y < h);
+        };
+
+        this.toString = function(){
+            return this.board.map(row.join(' ')).join('\n');
+        };
+    }
+
+    function solveMine(mineMap, totalMines){
+        var board = new Board(mineMap, totalMines);
+
+        var passes = 0;
+        while (passes < 6){
+            return passes;
+            board.getInteresting();
+            return board.interesting.length;
+            while(board.interesting.length > 0){
+                board.clickAround(board.interesting.shift());
+            }
+            return board.visited.length;
+            return board.minesFound;
+            passes++;
+        }
+        return board.toString();
+
+        return solveEndGame(board);
+    }
+
+    function solveEndGame(board){
+        var remaining = board.findAll('?');
+        var rMines = board.totalMines - board.minesFound;
+        var solutios = {};
+
+        return remaining;
+        return rMines;
+    }
+    if(remaining.length === 0) {
+        return board.toString();
+    }
+    else {
+        var perms = simpleperms(rMines, remaining.length);
+        for(var p of perms){
+            var sol = generateSolution(p);
+            if(validateSolution(sol)){
+                //return p;
+                solution[p] = sol;
+            }
+        }
+        for(var r of remaining){
+            r.val = '?';
+        }
+        //return Object.keys(solutions).length;
+
+        if(Object.keys(solutions).length > 1){
+            var betterSolutions;
+            while(true){
+                betterSolutions = reduceSolutions(solutions);
+                if(betterSolutions) solutions = betterSolutions;
+                else break;
+            }
+            if(Object.keys(solutions).length !== 1){
+                return '?';
+            }
+            else{
+                return outputFinal()
+            }
+        }
     }
   }
